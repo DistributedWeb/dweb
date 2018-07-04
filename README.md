@@ -11,7 +11,7 @@
   - [dWeb In FireFox](#dweb-in-firefox)
 - [Become a dWeb Developer](#become-a-dweb-developer)
   - [Developer Prerequisites](#developer-prerequisites)
-    - [Install Node.js]((install-node-js)
+    - [Install Node.js](install-node-js)
       - [Installing Node.js On Linux and Mac](#install-node-js)
       - [Installing Node.js On Windows](#install-node-js)
   - [Developer Tools](#developer-tools)
