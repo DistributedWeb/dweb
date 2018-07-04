@@ -59,11 +59,6 @@
 - `dstatus` - A distributed and decentralized version of Twitter for the dWeb [Wiki definition](https://wiki.dwebs.io/dstatus)
 - `dtunes` - A distributed and decentralized version of Spotify for the dWeb [Wiki definition](https://wiki.dwebs.io/dtunes)
 - `meteorIDE` - A distributed and decentralized code editor for benOS and dBrowser [Wiki definition](https://wiki.dwebs.io/meteorIDE)
-- `meteorIDE` - A distributed and decentralized code editor for benOS and dBrowser [Wiki definition](https://wiki.dwebs.io/meteorIDE)
-- `meteorIDE` - A distributed and decentralized code editor for benOS and dBrowser [Wiki definition](https://wiki.dwebs.io/meteorIDE)
-- `meteorIDE` - A distributed and decentralized code editor for benOS and dBrowser [Wiki definition](https://wiki.dwebs.io/meteorIDE)
-- `meteorIDE` - A distributed and decentralized code editor for benOS and dBrowser [Wiki definition](https://wiki.dwebs.io/meteorIDE)
-
 
 ## Become a dWeb Developer
 
