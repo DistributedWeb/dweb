@@ -175,7 +175,22 @@ dPack Troubleshooting & Help:
 Have fun using dPack! Learn more at docs.dpack.io
 ```
 
-For more information on how to use dPack, go to the [official dPack documentation](http://docs.dpack.io)
+***dWeb Live Testing Links***
+You may want to test `dpack sync` or `dpack fork` utilities to make sure everything is functioning correctly. To do so, we have several dWeb links that are live for testing. The following links should be valid and working at this time:
+
+- [dweb://07eeb067dd5b444232964a97f0f2a19e60af8fd4b21fb09f38c7948967034bdc](dweb://07eeb067dd5b444232964a97f0f2a19e60af8fd4b21fb09f38c7948967034bdc) - Minimum dPack ( Just dpack.json / / 1 File )
+
+- [dweb://42691e1c54a6e0a1ca4164ac5223adee488e60e4c75f549ed9d8368cc42e8fb6](dweb://42691e1c54a6e0a1ca4164ac5223adee488e60e4c75f549ed9d8368cc42e8fb6) - Small dPack ( / 1 File)
+
+- [dweb://2b1b554f7b184fc10b8d61bae4c2c4248f56de2ef631a6778b2768914a559aa2](dweb://2b1b554f7b184fc10b8d61bae4c2c4248f56de2ef631a6778b2768914a559aa2) - Medium dPack ( / 2 Files)
+
+- [dweb://d50b3af6e2bf329cfe8cbfa9b62e811c15ba5ac6414d2961f833387de0b2b704](dweb://d50b3af6e2bf329cfe8cbfa9b62e811c15ba5ac6414d2961f833387de0b2b704) - Large dPack (217MB / 26 Files)
+
+- [dweb://1633766920c7b3f1e1918563a2fdab2c854f8f0fc6a5074156cc3d29f975f7dd](dweb://1633766920c7b3f1e1918563a2fdab2c854f8f0fc6a5074156cc3d29f975f7dd) - Website dPack (Complete Website / 171KB / 18 files)
+
+** You can actually host your own test links for the community. If you would like to donate test dPack links, please email them to [tests@dpack.io](mailto:tests@dpack.io). We will check out the content and post if they fit our [Acceptable Use Policy](https://dhosting.io/acceptable-use-policy)
+
+For more information on how to use dPack, go to the [Official dPack documentation](http://docs.dpack.io)
 
 #### Launching dWeb Towers
 When launching a `dSite` or a `dApp`, developers can use public dTowers to listen for events, subscriptions and beam broadcasts across the Distributed Web, or they can run their own dedicated towers for total decentralization. Below is a guide on how to launch your own towers. Towers run on `port 80` by default.
