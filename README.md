@@ -7,8 +7,6 @@
   - [dWeb Cryptography](#dweb-cryptography)  
   - [dWeb Core Libraries](#dweb-core-libraries)
   - [dWeb URLs](#dweb-urls)
-  - [dWeb In dBrowser](#dweb-in-dbrowser)
-  - [dWeb In FireFox](#dweb-in-firefox)
 - [Become a dWeb Developer](#become-a-dweb-developer)
   - [Developer Prerequisites](#developer-prerequisites)
     - [Install Node.js](install-node-js)
@@ -39,6 +37,11 @@
     - [Running Your Own dPack Repository](#running-your-own-dpack-repository)
   - [Public Dr. Satoshi Nodes](#public-dr-satoshi-nodes)
 - [Browsing The dWeb](#browsing-the-dweb)
+  - [Compatible Web Browsers](#compatible-web-browsers)
+  - [Popular dWeb dSites and dApps ](#popular-dweb-dsites-and-dapps)
+    - [dHosting](#dhosting)
+    - [dWebs](#dwebs)
+    - [dBrowser](#dbrowser)
 
 ## dWeb Glossary
 
@@ -59,6 +62,18 @@
 - `dstatus` - A distributed and decentralized version of Twitter for the dWeb [Wiki definition](https://wiki.dwebs.io/dstatus)
 - `dtunes` - A distributed and decentralized version of Spotify for the dWeb [Wiki definition](https://wiki.dwebs.io/dtunes)
 - `meteorIDE` - A distributed and decentralized code editor for benOS and dBrowser [Wiki definition](https://wiki.dwebs.io/meteorIDE)
+
+## dWeb Protocol
+
+### dWeb Codec 
+
+### dWeb Link Buffering 
+
+### dWeb Cryptography 
+
+### dWeb Core Libraries 
+
+### dWeb URLs
 
 ## Become a dWeb Developer
 
@@ -390,3 +405,37 @@ We maintain several publicly available Dr. Satoshi nodes. You can use any of the
 - [http://satoshi4.dwebs.io](http://satoshi4.dwebs.io)
 
 ## Browsing The dWeb
+
+
+### Popular dWeb dSites and dApps 
+
+#### dHosting 
+dHosting provides distributed hosting services for dSites and dApps on the dweb://. Allowing developers to keep their dSites and dApps online forever, while also providing a shortname on the dhosting.io globally recognized TLD (top-level domain name), which can be used as a CNAME, to fully host your website on the dWeb, rather than paying for expensive hosting services. The [dHosting.io Website](https://dhosting.io) can be accessed from over dweb:// and https://. 
+
+**dweb:// Links**
+Coming soon.
+
+**Served Over HTTP/HTTPS**
+Coming soon.
+
+
+#### dWebs
+dWebs is the official website for the dweb:// protocol and has many dWeb (Distributed web) resoures for developers and users alike. The [dWebs.io Website](https://dwebs.io) can be accessed from over dweb:// and https://. 
+
+**dweb:// Links**
+- [dweb://49096d06943b4136db9dda54c8a31e427f5b66b33ebda17d4a15bea1caed73cc](dweb://49096d06943b4136db9dda54c8a31e427f5b66b33ebda17d4a15bea1caed73cc)
+- [dweb://dwebs.io](dweb://dwebs.io)
+
+**Served Over HTTP/HTTPS**
+- [https://dwebs.io](https://dwebs.io)
+
+
+#### dBrowser
+**dweb:// Links**
+- [dweb://13ca040c53fc8bcaa74de142449e30ece2b3576a8c9beff2ba3b13fb98f5e3c7](dweb://13ca040c53fc8bcaa74de142449e30ece2b3576a8c9beff2ba3b13fb98f5e3c7)
+- [dweb://dbrowser.io](dweb://dbrowser.io)
+
+**Served Over HTTP/HTTPS**
+- [https://dbrowser.io](https://dbrowser.io)
+
+
