@@ -2,8 +2,9 @@
 
 - [dWeb Glossary](#dweb-glossary)
 - [dWeb Protocol](#dweb-protocol)
+  - [dWeb Network](#dweb-network)
+    - [Important dWeb Network Information](#important-dweb-network-information)
   - [dWeb Codec](#dweb-codec)
-  - [dWeb Link Buffering](#dweb-link-buffering)
   - [dWeb Cryptography](#dweb-cryptography)  
   - [dWeb Core Libraries](#dweb-core-libraries)
   - [dWeb URLs](#dweb-urls)
@@ -64,16 +65,74 @@
 - `meteorIDE` - A distributed and decentralized code editor for benOS and dBrowser [Wiki definition](https://wiki.dwebs.io/meteorIDE)
 
 ## dWeb Protocol
+The dWeb protocol is a combination of many protocols and consistently growing with more features. dWeb stands for "Distributed Web" and operates through the dweb:// web address prefix, where dSites (Distributed websites) and dApps (Distributed apps) can be accessed. There is a lot of software that allows the dWeb to grow and many toolsets for developers to build dSites/dApps and distribute them to peers around the world. dWeb represents the modern-day HTTP/HTTPS protocols, tied into one. Below are tons of resources and guides to get you started on the Distributed Web. 
 
+- ***Note: This guide is constantly growing and information is constantly being added here. If you find any errors, please let us know, by emailing us at docs@dwebs.io***
+
+### dWeb Network 
+The dWeb network is completely peer-to-peer. Although we do have some central infrastructure out there, that central infrastructure is peered and all of our websites exist on the dweb:// 
+
+#### Important dWeb Network Information 
+
+- **Address Resolving** 
+   - Addresses always start with **dweb://**
+   - Addresses are always 64 bit hashes
+   - dweb:// based dSites and dApps can be accessed via their normal TLDs. ***ex: dweb://dwebs.io***
+
+- **dWeb Global Network Ports**
+  - Global DNS Revelation - Port 6620 
+  - Dr. Satoshi (Network Health Peers) - Port 6621 
+  - BitTorrent DHT 
+  - BenchCore (Root Payments Protocol / Network) - Port 6620 
+ 
+- **Serving Over HTTP**
+  - Requires a special **TXT** record **@** the base level of the TLD being used. See more [here](#serve-over-http)
+  - Always uses the **DWEBKEY** variable in the **TXT** record. 
+ 
 ### dWeb Codec 
+dWeb addresses encoded and decoded via a special codec library [@dwebs/codec](https://npmjs.org/package/@dwebs/codec) that can be included in dSites and dApps for extended functionality. 
 
-### dWeb Link Buffering 
+**Usage Example:**
+```
+var encoding = require('@dwebs/codec')
+
+var link = 'd50b3af6e2bf329cfe8cbfa9b62e811c15ba5ac6414d2961f833387de0b2b704'
+var buf = encoding.decode(link)
+console.log('%s -> %s', link, buf)
+console.log('%s -> %s', buf, encoding.encode(buf))
+```
 
 ### dWeb Cryptography 
+dWeb, although not powered by any sort of blockchain-based software - does utilize [Sodium's](https://github.com/jedisct1/libsodium) cryptographic libraries for addresses, [dPack](https://dpack.io) keys and more. 
 
 ### dWeb Core Libraries 
+The dWeb protocol (dweb://) is powered by many core libraries that can also be used within your dSites and dApps! Below are repository links, NPM links and current versioning information for each of the core libraries that power the dWeb. 
+
+| Package | Version | Description
+|---|---|---|
+| [buffer-key](https://github.com/distributedweb/buffer-key) | [![npm](https://img.shields.io/npm/v/@dwebs/buffer-key.svg)](https://www.npmjs.com/package/@dwebs/buffer-key) | dWeb Key Buffering |
+| [codec](https://github.com/distributedweb/codec) | [![npm](https://img.shields.io/npm/v/@dwebs/codec.svg)](https://www.npmjs.com/package/@dwebs/codec) | dWeb Key Codec |
+| [dns](https://github.com/distributedweb/) | [![npm](https://img.shields.io/npm/v/@dwebs/dns.svg)](https://www.npmjs.com/package/@dwebs/dns) | dWeb DNS Library |
+| [dsitedb](https://github.com/distributedweb/dsitedb) | [![npm](https://img.shields.io/npm/v/@dwebs/dsitedb.svg)](https://www.npmjs.com/package/@dwebs/dsitedb) | dSite/dApp Distributed Database Library |
+| [gateway](https://github.com/distributedweb/gateway) | [![npm](https://img.shields.io/npm/v/@dwebs/gateway.svg)](https://www.npmjs.com/package/@dwebs/gateway) | dWeb Network Gateway |
+| [helper](https://github.com/distributedweb/helper) | [![npm](https://img.shields.io/npm/v/@dwebs/helper.svg)](https://www.npmjs.com/package/@dwebs/helper) | dWeb Network Helper |
+| [parse](https://github.com/distributedweb/parse) | [![npm](https://img.shields.io/npm/v/@dwebs/parse.svg)](https://www.npmjs.com/package/@dwebs/parse) | dWeb Address Parsing |
+| [peer](https://github.com/distributedweb/peer) | [![npm](https://img.shields.io/npm/v/@dwebs/peer.svg)](https://www.npmjs.com/package/@dwebs/peer) | dWeb P2P Library |
+| [resolve](https://github.com/distributedweb/resolve) | [![npm](https://img.shields.io/npm/v/@dwebs/resolve.svg)](https://www.npmjs.com/package/@dwebs/resolve) | dWeb Address Resolver Library |
+| [rpc-ws](https://github.com/distributedweb/rpc-ws) | [![npm](https://img.shields.io/npm/v/@dwebs/rpc-ws.svg)](https://www.npmjs.com/package/@dwebs/rpc-ws) | dWeb RPC Over Web Sockets Library |
+| [tower](https://github.com/distributedweb/tower) | [![npm](https://img.shields.io/npm/v/@dwebs/tower.svg)](https://www.npmjs.com/package/@dwebs/tower) | dWeb Tower Launcher CLI |
 
 ### dWeb URLs
+dWeb URLs operate just like HTTP/HTTPS-based URLs, with a few differences:
+
+- Where on the central web a HTTP/HTTPS-based URL can serve network resources via a TLD or an IPV4/IPV6 address, dWeb-based URLs can serve network resources via a TLD or a dWeb Key. 
+
+- dWeb addresses also start with the protocol prefix, just like `http://` or `https://`, dWeb addresses begin with the `dweb://` prefix. dWeb addresses are always secure with end-to-end encryption, so there is no such thing as an insecure prefix, as you would find on the central web with `http://`
+
+### dWeb Financial Protocols 
+
+
+#### BenchCore (BEX)
 
 ## Become a dWeb Developer
 
@@ -399,10 +458,10 @@ The [dPack CLI](http://docs.dpack.io/cli) comes with a built-in utility called [
 
 We maintain several publicly available Dr. Satoshi nodes. You can use any of these nodes in your own Dr. Satoshi build below:
 
-- [http://satoshi.dwebs.io](http://satoshi.dwebs.io)
-- [http://satoshi2.dwebs.io](http://satoshi2.dwebs.io)
-- [http://satoshi3.dwebs.io](http://satoshi3.dwebs.io)
-- [http://satoshi4.dwebs.io](http://satoshi4.dwebs.io)
+- [http://satoshi.dwebs.io:6620](http://satoshi.dwebs.io:6620) - Fully functioning
+- [http://satoshi2.dwebs.io:6620](http://satoshi2.dwebs.io:6620) - ***Down for maintenance***
+- [http://satoshi3.dwebs.io:6620](http://satoshi3.dwebs.io:6620) - ***Down for maintenance***
+- [http://satoshi4.dwebs.io:6620](http://satoshi4.dwebs.io:6620) - ***Down for maintenance***
 
 ## Browsing The dWeb
 
