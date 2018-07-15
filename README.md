@@ -453,6 +453,16 @@ You can run your own private dPack repository or throw up a emergency dPack repo
 
 We also run a public dPack repository [here](https://dpacks.io) and several emergency nodes you can find [here](#emergency-public-dpack-repository-nodes).
 
+##### Creating Public/Private Keys For Configuration
+
+**Private Key**
+```js
+openssl ecparam -genkey -name secp521r1 -noout -out ecdsa-p521-private.pem
+```
+**Public Key**
+```js
+openssl ec -in ecdsa-p521-private.pem -pubout -out ecdsa-p521-public.pem 
+```
 ### Public Dr. Satoshi Nodes
 The [dPack CLI](http://docs.dpack.io/cli) comes with a built-in utility called [Dr. Satoshi](http://docs.dpack.io/dr-satoshi) for checking the health of the Distributed Web (dWeb) network. You could easily test the network yourself, by using several Satoshi nodes that are publicly available and paid for by the [Distributed Webs](https://distributedwebs.org) non-profit project.
 
