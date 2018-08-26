@@ -1,4 +1,5 @@
-<img src="https://github.com/DistributedWeb/dweb/blob/master/dbank-lower-logo.png" /> # dWeb Protocol Documentation
+<img src="https://github.com/DistributedWeb/dweb/blob/master/dbank-lower-logo.png" /> 
+# dWeb Protocol Documentation
 
 ## Table Of Contents
 [dWeb Documentation](https://docs.dwebs.io)
