@@ -1,7 +1,6 @@
----
-layout: base
-title: dWeb Protocol Documentation
----
+# dWeb Protocol Documentation
+
+## Table Of Contents
 [dWeb Documentation](https://docs.dwebs.io)
   - [dWeb Protocol](https://docs.dwebs.io/dweb)
     - [dWeb Glossary](https://docs.dwebs.io/dweb/glossary)
