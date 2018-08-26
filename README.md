@@ -1,3 +1,4 @@
+[dWebLogo](https://github.com/DistributedWeb/dweb/blob/master/dbank-lower-logo.png)
 # dWeb Protocol Documentation
 
 ## Table Of Contents
