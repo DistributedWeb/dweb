@@ -1,0 +1,206 @@
+# MultiCast DNS
+
+## Introduction
+
+dWeb Multicast DNS Javascript Library
+
+```
+npm install @distdns/core
+```
+
+## Usage
+
+``` js
+var mDNS = require('@distdns/core')()
+
+mDNS.on('response', function(response) {
+  console.log('got a response packet:', response)
+})
+
+mDNS.on('query', function(query) {
+  console.log('got a query packet:', query)
+})
+
+// lets query for an A record for 'dweb.local'
+mDNS.query({
+  questions:[{
+    name: 'dweb.local',
+    type: 'A'
+  }]
+})
+```
+
+Running the above (change `dweb.local` to `your-own-hostname.local`) will print an echo of the query packet first
+
+``` js
+got a query packet: { type: 'query',
+  questions: [ { name: 'dweb.local', type: 'A', class: 1 } ],
+  answers: [],
+  authorities: [],
+  additionals: [] }
+```
+
+And then a response packet
+
+``` js
+got a response packet: { type: 'response',
+  questions: [],
+  answers:
+   [ { name: 'dweb.local',
+       type: 'A',
+       class: 'IN',
+       ttl: 120,
+       flush: true,
+       data: '192.168.1.5' } ],
+  authorities: [],
+  additionals:
+   [ { name: 'dweb.local',
+       type: 'A',
+       class: 'IN',
+       ttl: 120,
+       flush: true,
+       data: '192.168.1.5' },
+     { name: 'dweb.local',
+       type: 'AAAA',
+       class: 'IN',
+       ttl: 120,
+       flush: true,
+       data: 'fe80::5ef9:38ff:fe8c:ceaa' } ] }
+```
+
+
+# CLI
+
+```
+npm install -g @distdns/core
+```
+
+```
+mdns dweb.local
+> 192.168.1.1
+```
+
+# API
+
+A packet has the following format
+
+``` js
+{
+  questions: [{
+    name:'dweb.local',
+    type:'A'
+  }],
+  answers: [{
+    name:'dweb.local',
+    type:'A',
+    ttl:seconds,
+    data:(record type specific data)
+  }],
+  additionals: [
+    (same format as answers)
+  ],
+  authorities: [
+    (same format as answers)
+  ]
+}
+```
+
+Currently data from `SRV`, `A`, `PTR`, `TXT`, `AAAA` and `HINFO` records is passed
+
+#### `mDNS = multicastdns([options])`
+
+Creates a new `mdns` instance. Options can contain the following
+
+``` js
+{
+  multicast: true // use udp multicasting
+  interface: '192.168.0.2' // explicitly specify a network interface. defaults to all
+  port: 5353, // set the udp port
+  ip: '224.0.0.251', // set the udp ip
+  ttl: 255, // set the multicast ttl
+  loopback: true, // receive your own packets
+  reuseAddr: true // set the reuseAddr option when creating the socket (requires node >=0.11.13)
+}
+```
+
+#### `mDNS.on('query', (packet, rinfo))`
+
+Emitted when a query packet is received.
+
+``` js
+mdns.on('query', function(query) {
+  if (query.questions[0] && query.questions[0].name === 'dweb.local') {
+    mdns.respond(someResponse) // see below
+  }
+})
+```
+
+#### `mDNS.on('response', (packet, rinfo))`
+
+Emitted when a response packet is received.
+
+The response might not be a response to a query you send as this
+is the result of someone multicasting a response.
+
+#### `mDNS.query(packet, [cb])`
+
+Send a dns query. The callback will be called when the packet was sent.
+
+The following shorthands are equivalent
+
+``` js
+mDNS.query('dweb.local', 'A')
+mDNS.query([{name:'dweb.local', type:'A'}])
+mDNS.query({
+  questions: [{name:'dweb.local', type:'A'}]
+})
+```
+
+#### `mDNS.respond(packet, [cb])`
+
+Send a dns response. The callback will be called when the packet was sent.
+
+``` js
+// reply with a SRV and a A record as an answer
+mDNS.respond({
+  answers: [{
+    name: 'my-service',
+    type: 'SRV',
+    data: {
+      port:9999,
+      weigth: 0,
+      priority: 10,
+      target: 'my-service.example.com'
+    }
+  }, {
+    name: 'dweb.local',
+    type: 'A',
+    ttl: 300,
+    data: '192.168.1.5'
+  }]
+})
+```
+
+The following shorthands are equivalent
+
+``` js
+mDNS.respond([{name:'dweb.local', type:'A', data:'192.158.1.5'}])
+mDNS.respond({
+  answers: [{name:'dweb.local', type:'A', data:'192.158.1.5'}]
+})
+```
+
+#### `mDNS.destroy()`
+
+Destroy the mDNS instance. Closes the UDP socket.
+
+# Development
+
+To start hacking on this module you can use this example to get started
+
+```
+git clone git://github.com/distdns/core.git
+npm install
+node example.js
+mdns $(hostname).local
+```
